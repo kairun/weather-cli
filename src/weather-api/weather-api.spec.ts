@@ -1,4 +1,5 @@
 import 'jest';
+import config = require('config');
 import { WeatherApi } from './weather-api';
 import { UnexpectedInputError } from './errors';
 
@@ -8,7 +9,7 @@ describe('WeatherApi', () => {
   beforeAll(() => {
     let WeatherApi = mockJest();
 
-    weatherApi = new WeatherApi('4c18248c48f4a6f471cad850bd29285c');
+    weatherApi = new WeatherApi(config.get('apiKey'));
   });
 
   describe('getWeatherToday', () => {
