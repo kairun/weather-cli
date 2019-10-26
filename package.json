@@ -1,0 +1,29 @@
+{
+  "name": "coates-group",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "jest --watch"
+  },
+  "author": "Seongmin Jeong",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^24.0.20",
+    "@types/node": "^12.11.7",
+    "@types/sinon": "^7.5.0",
+    "@typescript-eslint/parser": "^2.5.0",
+    "eslint": "^6.6.0",
+    "eslint-plugin-jest": "^22.20.0",
+    "jest": "^24.9.0",
+    "sinon": "^7.5.0",
+    "ts-jest": "^24.1.0",
+    "ts-node": "^8.4.1",
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.4"
+  },
+  "dependencies": {
+    "axios": "^0.19.0"
+  }
+}
