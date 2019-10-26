@@ -7,7 +7,7 @@ describe('WeatherApi', () => {
   let weatherApi: WeatherApi;
 
   beforeAll(() => {
-    let WeatherApi = mockJest();
+    let WeatherApi = mockWeatherApi();
 
     weatherApi = new WeatherApi(config.get('apiKey'));
   });
@@ -34,7 +34,7 @@ describe('WeatherApi', () => {
   });
 
   // @ts-ignore
-  function mockJest() {
+  function mockWeatherApi() {
     let { WeatherApi } = require('./weather-api');
 
     jest.mock('axios', () => {
