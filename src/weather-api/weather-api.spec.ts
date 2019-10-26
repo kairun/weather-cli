@@ -22,7 +22,7 @@ describe('WeatherApi', () => {
       getStub.resetHistory();
     });
 
-    it.only('should throw UnexpectedInputError if unexpected input is given', async () => {
+    it('should throw UnexpectedInputError if unexpected input is given', async () => {
       await expect(
         weatherApi.getWeatherToday('unexpected')
       ).rejects.toThrow(UnexpectedInputError);
