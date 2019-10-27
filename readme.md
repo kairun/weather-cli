@@ -5,18 +5,18 @@ This CLI app is indented to parse a user input of a location, and provide overvi
 1. Currently only works with city names
 
 # Install
-On your favourite CLI, run
+On your favourite CLI, run (replace ssh with https if ssh is not set)
+```
+npm install -g git+ssh://git@github.com:kairun/weather-cli.git
+```
+
+if doesn't want to install through npm, then clone the repo, and
 ```
 npm link
 weather-cli
 ```
 
-instead, if want to install globally instead of `npm link`,
-```
-npm install -g ./
-```
-
-if don't want to symlink or install, then just
+if don't want to symlink or install, then clone the repo, and just
 ```
 npm run weather-cli
 ```
@@ -24,14 +24,14 @@ npm run weather-cli
 When prompted, enter a city name. If city name is ambiguous, provide country code followed by comma (e.g. `London, UK`)
 
 # Uninstall
-If symlinked,
-```
-npm unlink
-```
-
 If npm global installed,
 ```
 npm uninstall weather-cli
+```
+
+If symlinked,
+```
+npm unlink
 ```
 
 # Develop
