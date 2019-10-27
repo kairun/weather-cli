@@ -10,6 +10,8 @@ On your favourite CLI, run
 npm run weather
 ```
 
+When prompted, enter a city name. If city name is ambiguous, provide country code followed by comma (e.g. `London, UK`)
+
 # Develop
 On your favourite CLI, run
 ```
