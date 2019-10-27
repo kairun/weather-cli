@@ -8,6 +8,7 @@ This CLI app is indented to parse a user input of a location, and provide overvi
 On your favourite CLI, run (replace ssh with https if ssh is not set)
 ```
 npm install -g git+ssh://git@github.com:kairun/weather-cli.git#1.0.1
+weather-cli
 ```
 
 if don't want to install through npm, then clone the repo, and
