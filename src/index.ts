@@ -1,4 +1,3 @@
-import commander = require('commander');
 import config = require('config');
 import { WeatherApi, UnexpectedInputError } from './weather-api';
 import { UserInterface } from './user-interface';
@@ -7,12 +6,8 @@ import { Displayer } from './displayer';
 const LOOP_TILL_VALID_INPUT = true;
 
 async function main() {
-  let program = new commander.Command();
   let userInterface = new UserInterface();
   let displayer = new Displayer();
-
-  program
-    .version('1.0.0');
 
   await displayer.greetings();
 
