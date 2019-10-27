@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/index.ts",
-  "install": "npm run build",
+  "install": "tsc",
   "bin": {
     "weather-cli": "./dist/index.js"
   },
