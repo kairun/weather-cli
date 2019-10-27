@@ -17,8 +17,6 @@ export class Displayer {
 
   weather(locationWeather: ILocationWeather) {
     console.log(stripIndents`
-
-
       Hi, currently at ${chalk.red(locationWeather.location)},
 
       It is currently ${chalk.red(locationWeather.status)}
@@ -33,8 +31,6 @@ export class Displayer {
       degree: ${chalk.cyan(String(locationWeather.wind.degree))}
 
       And humid as much as ${chalk.blue(String(locationWeather.humidity))}!
-
-
     `);
   }
 
