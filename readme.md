@@ -27,7 +27,7 @@ When prompted, enter a city name. If city name is ambiguous, provide country cod
 # Uninstall
 If npm global installed,
 ```
-npm uninstall weather-cli
+npm uninstall -g weather-cli
 ```
 
 If symlinked,
