@@ -10,7 +10,7 @@ On your favourite CLI, run (replace ssh with https if ssh is not set)
 npm install -g git+ssh://git@github.com:kairun/weather-cli.git
 ```
 
-if doesn't want to install through npm, then clone the repo, and
+if don't want to install through npm, then clone the repo, and
 ```
 npm link
 weather-cli
