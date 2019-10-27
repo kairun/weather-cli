@@ -1,6 +1,21 @@
 import axios from 'axios';
 import { UnexpectedInputError } from './errors';
 
+export interface ILocationWeather {
+  location: string;
+  status: string;
+  temperature: {
+    now: number;
+    min: number;
+    max: number;
+  };
+  humidity: number;
+  wind: {
+    speed: number;
+    degree: number;
+  };
+}
+
 export class WeatherApi {
   private method: string;
   private host: string;
@@ -16,8 +31,10 @@ export class WeatherApi {
     this.defaultUrl = `${this.method}://${this.host}/${this.defaultPath}`;
   }
 
-  async getWeatherToday(location: string) {
+  async getWeatherToday(location: string): Promise<ILocationWeather> {
     let response;
+    let rawData;
+    let returnVal: ILocationWeather;
     let fullUrl = this.getFullUrl('/weather', `q=${location}`);
 
     try {
@@ -36,7 +53,24 @@ export class WeatherApi {
       throw new UnexpectedInputError();
     }
 
-    return response.data;
+    rawData = response.data;
+
+    returnVal = {
+      location,
+      status: rawData.weather[0].description,
+      temperature: {
+        now: rawData.main.temp,
+        min: rawData.main.temp_min,
+        max: rawData.main.temp_max
+      },
+      humidity: rawData.main.humidity,
+      wind: {
+        speed: rawData.wind.speed,
+        degree: rawData.wind.deg
+      }
+    };
+
+    return returnVal;
   }
 
   private getFullUrl(appendStr: string, queryString?: string) {

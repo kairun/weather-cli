@@ -41,18 +41,30 @@ describe('WeatherApi', () => {
       let { stub } = require('sinon');
       let { UnexpectedInputError } = require('./errors');
       let getStub = stub();
+      let returnVal = {
+        data: {
+          weather: [{description: ''}],
+          main: {
+            temp: '',
+            temp_min: '',
+            temp_max: ''
+          },
+          wind: {
+            speed: '',
+            deg: ''
+          }
+        },
+      };
 
       getStub.callsFake((url: string) => {
         return new Promise((resolve, reject) => {
           if (url.match(/unexpected/g)) {
             let unexpectedInputError = new UnexpectedInputError();
-            unexpectedInputError.response = {
-              data: {}
-            };
+            unexpectedInputError.response = returnVal;
 
             return reject(unexpectedInputError);
           }
-          return resolve({});
+          return resolve(returnVal);
         });
       });
 
