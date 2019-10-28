@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { UnexpectedInputError } from './errors';
 
+const KELVIN_MODIFIER = -273.15;
+
 export interface ILocationWeather {
   location: string;
   status: string;
@@ -59,9 +61,9 @@ export class WeatherApi {
       location,
       status: rawData.weather[0].description,
       temperature: {
-        now: rawData.main.temp,
-        min: rawData.main.temp_min,
-        max: rawData.main.temp_max
+        now: this.kelvinToCelcius(rawData.main.temp),
+        min: this.kelvinToCelcius(rawData.main.temp_min),
+        max: this.kelvinToCelcius(rawData.main.temp_max)
       },
       humidity: rawData.main.humidity,
       wind: {
@@ -73,7 +75,7 @@ export class WeatherApi {
     return returnVal;
   }
 
-  private getFullUrl(appendStr: string, queryString?: string) {
+  private getFullUrl(appendStr: string, queryString?: string): string {
     let returnUrl = `${this.defaultUrl}${appendStr}?appid=${this.key}`;
 
     if (queryString) {
@@ -81,5 +83,9 @@ export class WeatherApi {
     }
 
     return returnUrl;
+  }
+
+  private kelvinToCelcius(kelvinVal: number): number {
+    return Math.floor(kelvinVal + KELVIN_MODIFIER);
   }
 }

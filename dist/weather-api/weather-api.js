@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const axios_1 = require("axios");
 const errors_1 = require("./errors");
+const KELVIN_MODIFIER = -273.15;
 class WeatherApi {
     constructor(key) {
         this.key = key;
@@ -33,9 +34,9 @@ class WeatherApi {
             location,
             status: rawData.weather[0].description,
             temperature: {
-                now: rawData.main.temp,
-                min: rawData.main.temp_min,
-                max: rawData.main.temp_max
+                now: this.kelvinToCelcius(rawData.main.temp),
+                min: this.kelvinToCelcius(rawData.main.temp_min),
+                max: this.kelvinToCelcius(rawData.main.temp_max)
             },
             humidity: rawData.main.humidity,
             wind: {
@@ -51,6 +52,9 @@ class WeatherApi {
             returnUrl = returnUrl + `&${queryString}`;
         }
         return returnUrl;
+    }
+    kelvinToCelcius(kelvinVal) {
+        return Math.floor(kelvinVal + KELVIN_MODIFIER);
     }
 }
 exports.WeatherApi = WeatherApi;
