@@ -44,6 +44,9 @@ npm run dev
 `dev` because this project is written with TDD
 
 # Version history
+## 1.0.2
+Temperature unit is changed from Kelvin -> Celcius
+
 ## 1.0.1
 Bin link is added for running without npm run
 
