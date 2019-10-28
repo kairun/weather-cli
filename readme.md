@@ -1,5 +1,5 @@
 # Weather Forecast
-This CLI app is indented to parse a user input of a location, and provide overview of the weather for the location
+This CLI app is intended to parse a user input of a location, and provide overview of the weather for the location
 
 # Caveats
 1. Currently only works with city names
